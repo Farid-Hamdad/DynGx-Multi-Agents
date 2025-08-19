@@ -1,0 +1,65 @@
+# -----------------------------
+# DynGx Multi-Agent – .gitignore
+# -----------------------------
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+build/
+dist/
+.wheels/
+pip-wheel-metadata/
+
+# Environnements
+.env
+.venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Tests & couverture
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+*.cover
+*.log
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Données générées
+multi_out/
+dyngx_run_out/
+*.npz
+*.csv
+*.json
+*.pkl
+*.mat
+*.log
+timeline.*
+snapshot.*
+episodic.*
+
+# OS & autres
+*.tmp
+*.temp
+.cache/
