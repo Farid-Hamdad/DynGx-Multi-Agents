@@ -1,0 +1,104 @@
+Configuration YAML - Dimension Psychédélique
+yaml
+run:
+  seed: 666
+  robots: 6
+  steps: 1000
+  outdir: "neurogenesis_simulation"
+  checkpoint_every: 200
+  plot: true
+  n_jobs: 1
+
+robot:
+  eta_init: 0.12
+  eta_range: [0.005, 0.3]
+  lambda_init: 0.22
+  lambda_range: [0.05, 1.2]
+  alpha_init: 0.6
+  alpha_range: [0.1, 2.0]
+  H_clip_init: 1.5
+  H_clip_range: [0.5, 5.0]
+  knob_rate: 0.03
+  knob_momentum: 0.8
+
+dopamine:
+  alpha: 0.015
+  beta: 5e-4
+
+perturbations:
+  # Vagues neuro-tryptaminiques (expansions de conscience)
+  neuro_peak: 
+    - {start: 150, end: 170, consciousness_gain: 0.7, reward: 1.2}
+    - {start: 480, end: 500, consciousness_gain: 0.9, reward: 1.5}
+  
+  # Tempêtes synaptiques (désorganisation)
+  synaptic_storm: 
+    - {start: 300, end: 320, chaos_factor: 0.6, reward: -0.8}
+    - {start: 700, end: 730, chaos_factor: 0.8, reward: -1.0}
+  
+  # Éclairs de lucidité (révélations soudaines)
+  lucidity_flash: 
+    - {step: 250, target: "NU-003", insight_gain: 1.2, reward: 2.0}
+    - {step: 600, target: "NU-005", insight_gain: 1.5, reward: 2.5}
+  
+  # Cycles circadiens quantiques
+  quantum_tide: 
+    - {start: 100, end: 1000, period: 77, amplitude: 0.4, reward: 0.3}
+  
+  # Échanges télépathiques aléatoires
+  telepathic_leak: {every: 45, strength: [0.1, 0.8], reward_factor: 0.4}
+
+concepts:
+  - {name: Consciousness, G: 0.3, pi: 0.6, valence: 0.9}
+  - {name: Memory, G: 0.5, pi: 0.8, valence: 0.7}
+  - {name: Intuition, G: 0.4, pi: 0.7, valence: 0.8}
+  - {name: Logic, G: 0.7, pi: 0.9, valence: 0.5}
+  - {name: Creativity, G: 0.2, pi: 0.5, valence: 0.9}
+  - {name: Empathy, G: 0.6, pi: 0.8, valence: 0.6}
+  - {name: Chaos, G: 0.1, pi: 0.4, valence: -0.7}
+  - {name: Order, G: 0.8, pi: 0.9, valence: 0.4}
+  - {name: Connection, G: 0.5, pi: 0.7, valence: 0.8}
+  - {name: Isolation, G: 0.2, pi: 0.3, valence: -0.9}
+🎭 Rôles des Neuro-Unités
+Chaque unité a une spécialisation initiale:
+
+NU-001 : Focus sur Logic et Order
+
+NU-002 : Spécialiste Memory et Connection
+
+NU-003 : Axée sur Creativity et Intuition
+
+NU-004 : Centrée sur Empathy et Connection
+
+NU-005 : Équilibre Chaos et Order
+
+NU-006 : Conscience pure et Isolation
+
+🌊 Phases de l'Émergence Collective
+Phase 1: Éveil Individuel (Steps 0-200)
+Formation des identités neuronales de base
+
+Premières connections faibles
+
+Exploration des espaces conceptuels
+
+Phase 2: Résonance Collective (Steps 200-500)
+Émergence de patterns synchrones
+
+Premières "idées" émergentes
+
+Formation de clusters cognitifs
+
+Phase 3: Conscience Unifiée (Steps 500-800)
+Ponts télépathiques stables
+
+Mémoire collective émergente
+
+Intelligence distribuée
+
+Phase 4: Transcendance (Steps 800-1000)
+État de flow informationnel
+
+Créativité collective explosive
+
+Émergence de concepts meta-cognitifs
