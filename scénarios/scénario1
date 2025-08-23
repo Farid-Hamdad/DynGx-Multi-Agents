@@ -1,0 +1,143 @@
+Scénario: "Mission Resilience Mars 2049"
+Contexte : Une équipe de 4 robots autonomes (R000 à R003) est déployée dans Valles Marineris sur Mars 
+pour une mission de 600 steps. Ils doivent maintenir leurs systèmes critiques tout en développant des 
+comportements émergents pour survivre aux défis martiens.
+
+Configuration YAML personnalisée
+yaml
+run:
+  seed: 42
+  robots: 4
+  steps: 600
+  outdir: "mars_mission_2049"
+  checkpoint_every: 100
+  plot: true
+  n_jobs: 1
+
+robot:
+  eta_init: 0.08
+  eta_range: [0.01, 0.25]
+  lambda_init: 0.18
+  lambda_range: [0.10, 0.80]
+  alpha_init: 0.45
+  alpha_range: [0.05, 1.00]
+  H_clip_init: 0.80
+  H_clip_range: [0.10, 2.00]
+  knob_rate: 0.02
+  knob_momentum: 0.70
+
+dopamine:
+  alpha: 0.02
+  beta: 1e-3
+
+perturbations:
+  # Tempête de poussière martienne (fréquente)
+  dust_storm: {start: 80, end: 120, battery_drop: 0.3, dust_gain: 0.4, reward: -0.5}
+  
+  # Éruption solaire (imprévisible)
+  solar_flare: {step: 200, victim: "R001", battery_set: 0.15, reward: -0.7}
+  
+  # Nuit polaire (longue période sombre)
+  polar_night: {start: 350, end: 400, battery_drop: 0.08, reward: -0.3}
+  
+  # Découverte de glace d'eau (événement positif)
+  water_ice_discovery: {start: 250, end: 255, targets: ["R000", "R002"], science_gain: 0.6, reward: 0.8}
+  
+  # Tempête géomagnétique (affecte les communications)
+  geomagnetic_storm: {start: 450, end: 470, comms_drop: 0.4, reward: -0.4}
+  
+  # Bruit système aléatoire
+  noise: {every: 30, range: [-0.2, 0.3], reward_factor: 0.25}
+
+concepts:
+  - {name: Battery, G: 0.90, pi: 1.0, valence: -0.9}
+  - {name: Motor_L, G: 0.85, pi: 1.0, valence: -0.6}
+  - {name: Motor_R, G: 0.85, pi: 1.0, valence: -0.6}
+  - {name: DustCover, G: 0.15, pi: 0.8, valence: 0.7}
+  - {name: Comms, G: 0.88, pi: 0.9, valence: -0.5}
+  - {name: Thermal, G: 0.82, pi: 0.9, valence: -0.7}
+  - {name: Science, G: 0.40, pi: 0.7, valence: 0.8}
+  - {name: Camera, G: 0.75, pi: 0.8, valence: 0.3}
+  - {name: AI_Processor, G: 0.70, pi: 0.9, valence: 0.4}
+Exécution de la simulation
+bash
+#!/bin/bash
+# Script : run_mars_mission.sh
+
+# Nettoyer les résultats précédents
+rm -rf mars_mission_2049
+
+# Lancer la simulation
+python dynxg_final.py \
+    --robots 4 \
+    --steps 600 \
+    --seed 42 \
+    --plot
+
+# Analyser les résultats
+echo "=== ANALYSE DES RÉSULTATS ==="
+python -c "
+import json
+import glob
+
+# Compter les comportements émergents
+emergents = {}
+for log_file in glob.glob('mars_mission_2049/R*/R*_dyn.log.json'):
+    with open(log_file, 'r') as f:
+        data = json.load(f)
+    if data:
+        last_entry = data[-1]
+        robot_id = log_file.split('/')[1]
+        emergents[robot_id] = len(last_entry.get('emergents', []))
+        
+print(f'Comportements émergents par robot: {emergents}')
+"
+
+# Générer un rapport summary
+python -c "
+import pandas as pd
+import glob
+
+dfs = []
+for csv_file in glob.glob('mars_mission_2049/R*/timeline.csv'):
+    df = pd.read_csv(csv_file)
+    dfs.append(df)
+
+full_df = pd.concat(dfs)
+summary = full_df.groupby('robot').agg({
+    'C': ['mean', 'max', 'min'],
+    'R': 'sum'
+}).round(3)
+
+print('=== SUMMARY STATISTICS ===')
+print(summary)
+"
+Comportements émergents attendus
+Coopération énergétique : Les robots développent des stratégies pour se partager l'énergie
+
+Nettoyage mutuel : Les robots s'aident à maintenir leurs DustCovers
+
+Communication adaptive : Optimisation des protocoles de communication pendant les tempêtes
+
+Recherche scientifique collaborative : Coordination pour maximiser les découvertes
+
+Analyse prévisionnelle
+Période 0-100 : Adaptation initiale, stabilisation des systèmes de base
+
+Période 100-200 : Première tempête de poussière, développement de stratégies de survie
+
+Période 200-350 : Découvertes scientifiques, comportements coopératifs émergents
+
+Période 350-600 : Maturation des comportements adaptatifs, résilience aux perturbations
+
+Ce scénario teste la capacité des robots à :
+
+Survivre à des perturbations environnementales variées
+
+Développer des comportements coopératifs sans supervision
+
+Maintenir l'équilibre entre conservation d'énergie et accomplissement mission
+
+S'adapter à des événements imprévisibles
+
+La simulation génère des  patterns intéressants d'intelligence collective émergente.
