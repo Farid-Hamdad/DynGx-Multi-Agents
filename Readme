@@ -30,14 +30,6 @@ selon le stress global de la flotte.
 
 ## 🛠️ Démarrage rapide
 
-### 1. Installation
-```bash
-git clone https://github.com/<vous>/DynGx-MultiAgent.git
-cd DynGx-MultiAgent
-pip install -r requirements.txt
-2. Lancer la démo 4 robots
-bash
-
 python multi_dengx_demo.py          # 60 étapes, logs dans ./multi_out/
 streamlit run dashboard.py          # tableau de bord en direct
 3. Passer à 400 robots
@@ -69,16 +61,5 @@ Surface lunaire	50 rovers qui partagent l’énergie	licence 50 €/robot/an
 Livraison par drone	1 000 drones en ville	SaaS 0,01 €/vol
 Micro-grids	10 villages solaires autonomes	bundle 100 k€/village
 Essaims tactiques	200 UAV/UGV militaires	contrat 2,5 k€/unité
-📄 Licence & tarifs
-Code : Apache 2.0 – gratuit pour recherche et projets ouverts
-Licence commerciale : 50 €/robot/an ou contrats sur mesure
-Support & certification : contact@dyngx.com
-🤝 Contribuer
-Fork & PR
-Ajouter un scénario de test dans tests/
-Mettre à jour la doc (Markdown auto-généré)
-📞 Contact
-Email : contact@dyngx.com
-LinkedIn : linkedin.com/company/dyngx
-Démo vidéo : youtu.be/YOUR_VIDEO
-« D’un cerveau de robot unique à un OS de colonie autonome. »
+
+Support & certification :farid.dyn2025@gmail.com
