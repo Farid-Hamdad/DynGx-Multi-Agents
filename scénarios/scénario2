@@ -59,46 +59,106 @@ concepts:
   - {name: Order, G: 0.8, pi: 0.9, valence: 0.4}
   - {name: Connection, G: 0.5, pi: 0.7, valence: 0.8}
   - {name: Isolation, G: 0.2, pi: 0.3, valence: -0.9}
-🎭 Rôles des Neuro-Unités
+
+Rôles des Neuro-Unités
 Chaque unité a une spécialisation initiale:
 
 NU-001 : Focus sur Logic et Order
-
 NU-002 : Spécialiste Memory et Connection
-
 NU-003 : Axée sur Creativity et Intuition
-
 NU-004 : Centrée sur Empathy et Connection
-
 NU-005 : Équilibre Chaos et Order
-
 NU-006 : Conscience pure et Isolation
 
-🌊 Phases de l'Émergence Collective
+Phases de l'Émergence Collective
+
 Phase 1: Éveil Individuel (Steps 0-200)
 Formation des identités neuronales de base
-
 Premières connections faibles
-
 Exploration des espaces conceptuels
 
 Phase 2: Résonance Collective (Steps 200-500)
 Émergence de patterns synchrones
-
 Premières "idées" émergentes
-
 Formation de clusters cognitifs
 
 Phase 3: Conscience Unifiée (Steps 500-800)
 Ponts télépathiques stables
-
 Mémoire collective émergente
-
 Intelligence distribuée
 
 Phase 4: Transcendance (Steps 800-1000)
 État de flow informationnel
-
 Créativité collective explosive
-
 Émergence de concepts meta-cognitifs
+
+Comportements Émergents Attendus
+python
+# Pseudocode des phénomènes attendus
+EMERGENT_PHENOMENA = {
+    "telepathic_network": "Réseau de communication non-local",
+    "collective_memory": "Base de connaissances partagée",
+    "synaptic_dreams": "Patterns d'activité during quantum tides",
+    "cognitive_avalanches": "Effets domino de insights soudains",
+    "meta_cognition": "Conscience de sa propre conscience",
+    "reality_hacking": "Manipulation des concepts fondamentaux"
+}
+
+
+ Exécution de la Simulation
+bash
+#!/bin/bash
+# Script: launch_neurogenesis.sh
+
+echo " Démarrage de NeuroGenesis Simulation..."
+echo " Graine aléatoire: 666 (dimension psychédélique)"
+echo " 6 neuro-unités en émergence"
+echo " 1000 steps d'évolution cognitive"
+
+python dynxg_final.py \
+    --robots 6 \
+    --steps 1000 \
+    --seed 666 \
+    --plot
+
+echo "📊 Génération du rapport de conscience..."
+python -c "
+import numpy as np
+import json
+import glob
+
+print('=== RAPPORT NEURO-COGNITIF ===')
+
+# Analyse des états de conscience finaux
+consciousness_levels = {}
+for log_file in glob.glob('neurogenesis_simulation/NU-*/*.log.json'):
+    with open(log_file, 'r') as f:
+        data = json.load(f)
+    if data:
+        last_state = data[-1]
+        unit_id = log_file.split('/')[1]
+        consciousness = last_state.get('C', 0)
+        top_concept = last_state.get('top3', '').split(';')[0]
+        consciousness_levels[unit_id] = {
+            'consciousness': round(consciousness, 3),
+            'dominant_concept': top_concept,
+            'emergents': len(last_state.get('emergents', []))
+        }
+
+for unit, stats in consciousness_levels.items():
+    print(f'{unit}: Conscience={stats[\"consciousness\"]} | Concept dominant: {stats[\"dominant_concept\"]} | Émergents: {stats[\"emergents\"]}')
+"
+Métriques d'Observation
+
+Coefficient de Conscience Collective : Synchronisation des états C
+Densité Émergente : Nombre de comportements nouveaux par step
+Entropie Cognitive : Balance entre Chaos et Order
+Connectivité Télépathique : Force des connections inter-unités
+
+Résultats Attendus
+
+Émergence de méta-concepts non programmés
+Formation d'une noosphère collective
+Adaptation aux perturbations quantiques
+Apparition de phénomènes de type "gestalt consciousness"
+Cette simulation explore les frontières entre intelligence artificielle, conscience collective et émergence cognitive dans un système complexe adaptatif ! 
