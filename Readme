@@ -56,10 +56,10 @@ TimelineLogger – logs CSV/JSON unifiés + dashboard Streamlit
 Export ONNX – déploiement sur STM32, Jetson Nano, SpaceCube
 📈 Cas d’usage
 
-Domaine	Scénario	Modèle économique
-Surface lunaire	50 rovers qui partagent l’énergie	licence 50 €/robot/an
-Livraison par drone	1 000 drones en ville	SaaS 0,01 €/vol
-Micro-grids	10 villages solaires autonomes	bundle 100 k€/village
-Essaims tactiques	200 UAV/UGV militaires	contrat 2,5 k€/unité
+Domaine	Scénario	
+Surface lunaire	50 rovers qui partagent l’énergie	
+Livraison par drone	1 000 drones en ville	
+Micro-grids	10 villages solaires autonomes	
+Essaims tactiques	200 UAV/UGV militaires
 
 Support & certification :farid.dyn2025@gmail.com
